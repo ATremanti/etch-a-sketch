@@ -1,5 +1,5 @@
 const container = document.querySelector('#container')
-let rows = 32;
+let rows = 16;
 
 function createRow() {
     const row = document.createElement('div')
@@ -18,6 +18,13 @@ function createGrid() {
     }
 }
 
+function clearGrid() {
+    const pixel = document.querySelectorAll('.grid-div')
+    pixel.forEach((pixel) => {
+        pixel.classList.remove('colored')
+    })
+}
+
 window.onload = function () {
     const pixel = document.querySelectorAll('.grid-div')
     pixel.forEach((pixel) => {
@@ -26,5 +33,10 @@ window.onload = function () {
         })
     })    
 }
+
+const btn = document.querySelector('#btn')
+btn.addEventListener('click', () => {
+    clearGrid()
+})
 
 createGrid()
