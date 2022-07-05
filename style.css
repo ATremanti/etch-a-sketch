@@ -1,13 +1,9 @@
 #container {
-    border: 1px solid black;
+    border: 2px solid black;
+    height: 500px;
+    width: 500px;
     display: flex;
-    width: fit-content;
-}
-
-.grid-div {
-    border: 1px solid black;
-    min-height: 20px;
-    min-width: 20px;
+    flex-wrap: wrap;
 }
 
 .colored {

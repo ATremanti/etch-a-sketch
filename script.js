@@ -1,42 +1,58 @@
 const container = document.querySelector('#container')
-let rows = 16;
+const reset = document.querySelector('#btnReset')
+const slider = document.querySelector('#btnSlider')
+const gridSize = document.querySelector('#size')
 
-function createRow() {
-    const row = document.createElement('div')
-    row.classList.add('row')
-    container.appendChild(row)
-    for (i = 1; i <= rows; i++) {
-        const square = document.createElement('div')
-        square.classList.add('grid-div')
-        row.appendChild(square)
+gridSize.textContent = slider.value
+slider.oninput = function() {
+    gridSize.textContent = this.value
+}
+
+function createGrid(size) {
+    const gridsquareSize = (500/(size))
+    resizeGrid()
+    for (i = 0; i < size; i++) {
+        const gridColumn = document.createElement('div')
+        container.appendChild(gridColumn)
+        for (j = 0; j < size; j++) {
+            const gridSquare = document.createElement('div')
+            gridSquare.classList.add('grid-square')
+            gridSquare.setAttribute('style', `height: ${gridsquareSize}px; width: ${gridsquareSize}px`)
+            gridColumn.appendChild(gridSquare)
+        }
+    }
+    drawSquare()
+}
+
+function resizeGrid() {
+    let container = document.getElementById('container')
+    while (container.firstChild) {
+        container.removeChild(container.firstChild)
     }
 }
 
-function createGrid() {
-    for (n = 0; n < rows; n++) {
-        createRow()
-    }
+function drawSquare() {
+    const gridSquare = document.querySelectorAll('.grid-square')
+    gridSquare.forEach((pixel) => {
+        pixel.addEventListener('mouseenter', function() {
+            pixel.classList.add('colored')
+        })
+    })
 }
 
 function clearGrid() {
-    const pixel = document.querySelectorAll('.grid-div')
-    pixel.forEach((pixel) => {
+    const gridSquare = document.querySelectorAll('.grid-square')
+    gridSquare.forEach((pixel) => {
         pixel.classList.remove('colored')
     })
 }
 
-window.onload = function () {
-    const pixel = document.querySelectorAll('.grid-div')
-    pixel.forEach((pixel) => {
-        pixel.addEventListener('mouseenter', () => {
-            pixel.classList.add('colored')
-        })
-    })    
-}
-
-const btn = document.querySelector('#btn')
-btn.addEventListener('click', () => {
+reset.addEventListener('click', function() {
     clearGrid()
 })
 
-createGrid()
+slider.addEventListener('change', function() {
+    createGrid(this.value)
+})
+
+createGrid(16)

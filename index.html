@@ -3,13 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="style.css">
+    <title>Etch-a-Sketch</title>
 </head>
 <body>
+<header>
+    <h1>Etch-a-Sketch</h1>
+</header>
+<div class="main">
+    <div class="settings">
+        <input type="color" id="btnColor">
+        <button id="btnReset">Reset</button>
+        <button id="btnEraser">Eraser</button>
+        <input type="range" min="4" max="64" value="16" id="btnSlider">
+        <p>Size: <span id="size"></span></p>
+    </div>
     <div id="container"></div>
-    <button id="btn">Reset grid</button>
+</div>
 
     <script src="script.js" defer></script>
 </body>
