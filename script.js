@@ -1,6 +1,9 @@
 const container = document.querySelector('#container')
 const reset = document.querySelector('#btnReset')
 const slider = document.querySelector('#btnSlider')
+const eraser = document.querySelector('#btnEraser')
+const color = document.querySelector('#btnColor')
+const brush = document.querySelector('#btnBrush')
 const gridSize = document.querySelector('#size')
 
 gridSize.textContent = slider.value
@@ -17,7 +20,7 @@ function createGrid(size) {
         for (j = 0; j < size; j++) {
             const gridSquare = document.createElement('div')
             gridSquare.classList.add('grid-square')
-            gridSquare.setAttribute('style', `height: ${gridsquareSize}px; width: ${gridsquareSize}px`)
+            gridSquare.setAttribute('style', `height: ${gridsquareSize}px; width: ${gridsquareSize}px;`)
             gridColumn.appendChild(gridSquare)
         }
     }
@@ -35,7 +38,16 @@ function drawSquare() {
     const gridSquare = document.querySelectorAll('.grid-square')
     gridSquare.forEach((pixel) => {
         pixel.addEventListener('mouseenter', function() {
-            pixel.classList.add('colored')
+            pixel.style.background = `${color.value}`
+        })
+    })
+}
+
+function eraseSquare() {
+    const gridSquare = document.querySelectorAll('.grid-square')
+    gridSquare.forEach((pixel) => {
+        pixel.addEventListener('mouseenter', function() {
+            pixel.style.background = 'white'
         })
     })
 }
@@ -43,7 +55,7 @@ function drawSquare() {
 function clearGrid() {
     const gridSquare = document.querySelectorAll('.grid-square')
     gridSquare.forEach((pixel) => {
-        pixel.classList.remove('colored')
+        pixel.style.background = 'white'
     })
 }
 
@@ -53,6 +65,14 @@ reset.addEventListener('click', function() {
 
 slider.addEventListener('change', function() {
     createGrid(this.value)
+})
+
+eraser.addEventListener('click', function() {
+    eraseSquare()
+})
+
+brush.addEventListener('click', function() {
+    drawSquare()
 })
 
 createGrid(16)
