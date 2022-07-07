@@ -4,6 +4,7 @@ const slider = document.querySelector('#btnSlider')
 const eraser = document.querySelector('#btnEraser')
 const color = document.querySelector('#btnColor')
 const brush = document.querySelector('#btnBrush')
+const rainbow = document.querySelector('#btnRainbow')
 const gridSize = document.querySelector('#size')
 
 gridSize.textContent = slider.value
@@ -43,6 +44,15 @@ function drawSquare() {
     })
 }
 
+function drawRainbow() {
+    const gridSquare = document.querySelectorAll('.grid-square')
+    gridSquare.forEach((pixel) => {
+        pixel.addEventListener('mouseenter', function() {
+            pixel.style.background = `#${Math.floor(Math.random()*16777215).toString(16)}`
+        })
+    })
+}
+
 function eraseSquare() {
     const gridSquare = document.querySelectorAll('.grid-square')
     gridSquare.forEach((pixel) => {
@@ -73,6 +83,10 @@ eraser.addEventListener('click', function() {
 
 brush.addEventListener('click', function() {
     drawSquare()
+})
+
+rainbow.addEventListener('click', function() {
+    drawRainbow()
 })
 
 createGrid(16)
