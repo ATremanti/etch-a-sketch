@@ -7,22 +7,26 @@
     <title>Etch-a-Sketch</title>
 </head>
 <body>
-<header>
-    <h1>Etch-a-Sketch</h1>
-</header>
-<div class="main">
-    <div class="settings">
-        <input type="color" id="btnColor">
-        <button id="btnReset">Reset</button>
-        <button id="btnEraser">Eraser</button>
-        <button id="btnBrush">Brush tool</button>
-        <button id="btnRainbow">Rainbow brush</button>
-        <input type="range" min="4" max="64" value="16" id="btnSlider">
-        <p>Size: <span id="size"></span></p>
+    <header>
+        <h1>Etch-a-Sketch</h1>
+    </header>
+    <div class="main">
+        <div class="settings">
+            <input type="color" id="btnColor" value="#635f62">
+            <button id="btnReset">Reset</button>
+            <button id="btnEraser">Eraser</button>
+            <button id="btnBrush">Brush tool</button>
+            <button id="btnRainbow">Rainbow brush</button>
+            <div id="slider">
+                <input type="range" min="4" max="64" value="16" id="btnSlider">
+                <p>Size: <span id="size"></span></p>
+            </div>
+        </div>
+        <div id="container"></div>
     </div>
-    <div id="container"></div>
-</div>
-
+    <div class="footer">
+        <footer>Created by ATremanti</footer><a href="https://github.com/ATremanti"><img src="images/GitHub-Mark-Light-32px.png" alt="GitHub Mark"></a>
+    </div>
     <script src="script.js" defer></script>
 </body>
 </html>

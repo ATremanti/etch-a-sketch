@@ -1,5 +1,68 @@
+body {
+    background-color: #6a5866;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.settings {
+    display: flex;
+    gap: 5px;
+    margin: 16px;
+}
+
+button {
+    height: 40px;
+    width: 80px;
+    box-shadow: 0 0 4px white;
+    border: 1px solid #6a5866;
+    border-radius: 3px;
+    background-color: white;
+    color: black;
+}
+
+#btnColor {
+    height: 40px;
+    width: 50px;
+    box-shadow: 0 0 4px white;
+    border: 1px solid #6a5866;
+    border-radius: 3px;
+}
+
+#btnSlider {
+    width: 100px;
+}
+
+p {
+    margin-top: 0;
+    color: white;
+}
+
+.footer {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: auto;
+}
+
 #container {
-    box-shadow: 0 0 12px black;
+    box-shadow: 0 0 12px white;
+    background-color: white;
     height: 500px;
     width: 500px;
     display: flex;
