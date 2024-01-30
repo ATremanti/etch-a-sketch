@@ -38,8 +38,10 @@ function resizeGrid() {
 function drawSquare() {
     const gridSquare = document.querySelectorAll('.grid-square')
     gridSquare.forEach((pixel) => {
-        pixel.addEventListener('mouseenter', function() {
-            pixel.style.background = `${color.value}`
+        pixel.addEventListener('mouseover', mouseevent => {
+            if (mouseevent.buttons === 1) {
+                pixel.style.background = `${color.value}`
+            }
         })
     })
 }
@@ -47,8 +49,10 @@ function drawSquare() {
 function drawRainbow() {
     const gridSquare = document.querySelectorAll('.grid-square')
     gridSquare.forEach((pixel) => {
-        pixel.addEventListener('mouseenter', function() {
-            pixel.style.background = `#${Math.floor(Math.random()*16777215).toString(16)}`
+        pixel.addEventListener('mouseover', mouseevent => {
+            if (mouseevent.buttons === 1) {
+                pixel.style.background = `#${Math.floor(Math.random()*16777215).toString(16)}`
+            }
         })
     })
 }
@@ -56,8 +60,10 @@ function drawRainbow() {
 function eraseSquare() {
     const gridSquare = document.querySelectorAll('.grid-square')
     gridSquare.forEach((pixel) => {
-        pixel.addEventListener('mouseenter', function() {
-            pixel.style.background = 'white'
+        pixel.addEventListener('mouseover', mouseevent => {
+            if (mouseevent.buttons === 1) {
+                pixel.style.background = 'white'
+            }
         })
     })
 }
